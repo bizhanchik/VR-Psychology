@@ -218,4 +218,11 @@ public class CameraMovement : MonoBehaviour
         }
         moveCoroutine = StartCoroutine(FollowPath());
     }
+    private void LateUpdate()
+    {
+        Vector3 euler = transform.eulerAngles;
+        euler.z = 0f;
+        transform.rotation = Quaternion.Euler(euler);
+    }
+
 }
