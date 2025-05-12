@@ -31,18 +31,13 @@ public class CameraMovement : MonoBehaviour
     [Range(0, 1)]
     public float rotationSmoothness = 0.75f;
 
-    [Tooltip("Максимальная скорость движения камеры")]
-    public float maxMoveSpeed = 0.5f;
-
-    [Tooltip("Максимальная скоростьв вращения камеры")]
-    public float maxRotationSpeed = 0.3f;
-
     private int currentWaypointIndex = 0;
     private bool isMoving = true;
     private Coroutine moveCoroutine;
     private Vector3 currentVelocity;
     private Vector3 currentRotationVelocity;
-
+    private float maxMoveSpeed = 0.5f;
+    private float maxRotationSpeed = 0.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -218,11 +213,4 @@ public class CameraMovement : MonoBehaviour
         }
         moveCoroutine = StartCoroutine(FollowPath());
     }
-    private void LateUpdate()
-    {
-        Vector3 euler = transform.eulerAngles;
-        euler.z = 0f;
-        transform.rotation = Quaternion.Euler(euler);
-    }
-
 }
