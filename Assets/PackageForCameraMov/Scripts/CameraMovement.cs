@@ -36,8 +36,13 @@ public class CameraMovement : MonoBehaviour
     private Coroutine moveCoroutine;
     private Vector3 currentVelocity;
     private Vector3 currentRotationVelocity;
-    private float maxMoveSpeed = 0.5f;
-    private float maxRotationSpeed = 0.3f;
+
+    [Tooltip("Максимальная скорость движения камеры")]
+    public float maxMoveSpeed = 0.5f;
+
+    [Tooltip("Максимальная скоростьв вращения камеры")]
+    public float maxRotationSpeed = 0.3f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -204,6 +209,12 @@ public class CameraMovement : MonoBehaviour
         isMoving = true;
     }
 
+    private void LateUpdate()
+    {
+        Vector3 euler = transform.eulerAngles;
+        euler.z = 0f;
+        transform.rotation = Quaternion.Euler(euler);
+    }
     public void RestartPath()
     {
         currentWaypointIndex = 0;
