@@ -10,6 +10,7 @@ public class KidneyScript : MonoBehaviour
         if (kidneyObject != null)
         {
             kidneyAnimator = kidneyObject.GetComponent<Animator>();
+            kidneyAnimator.SetBool("isNeedMove", false);
         }
     }
 
@@ -21,8 +22,6 @@ public class KidneyScript : MonoBehaviour
             {
                 kidneyAnimator.SetBool("isNeedMove", true);
             }
-
-            kidneyObject.gameObject.SetActive(false);
         }
     }
 }
