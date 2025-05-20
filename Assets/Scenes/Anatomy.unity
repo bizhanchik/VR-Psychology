@@ -860,6 +860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116632837}
   - component: {fileID: 116632838}
+  - component: {fileID: 116632839}
   m_Layer: 0
   m_Name: Kidney
   m_TagString: Untagged
@@ -907,6 +908,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &116632839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116632836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ec2d2c98e741f4a9b843c1256ad3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kidneyObject: {fileID: 543450652586096711}
 --- !u!1 &121291214
 GameObject:
   m_ObjectHideFlags: 0

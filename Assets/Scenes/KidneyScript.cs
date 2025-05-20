@@ -24,4 +24,11 @@ public class KidneyScript : MonoBehaviour
             }
         }
     }
+    public void KidneyBay()
+    {
+        if (kidneyObject != null)
+        {
+            kidneyObject.gameObject.SetActive(false);
+        }
+    }
 }
