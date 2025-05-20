@@ -921,6 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kidneyObject: {fileID: 543450652586096711}
+  kidneyAnimator: {fileID: 0}
 --- !u!1 &121291214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,6 +2186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kidneyObject: {fileID: 116632837}
+  kidneyAnimator: {fileID: 116632838}
 --- !u!65 &1815526859
 BoxCollider:
   m_ObjectHideFlags: 0

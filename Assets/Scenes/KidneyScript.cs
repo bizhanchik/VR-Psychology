@@ -3,13 +3,12 @@ using UnityEngine;
 public class KidneyScript : MonoBehaviour
 {
     public Transform kidneyObject;
-    private Animator kidneyAnimator;
+    public Animator kidneyAnimator;
 
     private void Start()
     {
         if (kidneyObject != null)
         {
-            kidneyAnimator = kidneyObject.GetComponent<Animator>();
             kidneyAnimator.SetBool("isNeedMove", false);
         }
     }
