@@ -6,44 +6,44 @@ using UnityEngine.UI;
 
 public class SubtitleManager : MonoBehaviour
 {
-    [Header("Настройки содержания")]
-    [Tooltip("Текст для субтитров")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public string[] subtitles;
 
-    [Tooltip("Проигрываемые фразы")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ")]
     public AudioClip[] audioClips;
 
-    [Tooltip("Пауза между фразами (секунды)")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)")]
     public float pauseBetweenClips = 0.5f;
 
-    [Tooltip("UI-элемент для вывода субтитров")]
+    [Tooltip("UI-пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public TMP_Text subtitleText;
 
-    [Tooltip("Аудиоисточник для воспроизведения озвучки")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public AudioSource audioSource;
 
-    [Tooltip("Текст предупреждения до триггера")]
-    public string warningText = "Повторяй за мной";
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
+    public string warningText = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ";
 
-    public float testTime = 0.3f; // Время ожидания перед началом воспроизведения
+    public float testTime = 0.3f; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private Coroutine subtitleCoroutine;
 
-    public float fadeDuration = 0.3f; // Длительность fade in/out
+    public float fadeDuration = 0.3f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ fade in/out
 
     private void Start()
     {
-        // Показываем предупреждение до входа в триггер
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         subtitleText.text = warningText;
         SetTextAlpha(1f);
     }
 
-    // Вызов метода из триггера
+    // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public void StartSubtitlesWithAudio()
     {
-        Debug.Log("StartSubtitlesWithAudio вызван");
+        Debug.Log("StartSubtitlesWithAudio пїЅпїЅпїЅпїЅпїЅпїЅ");
         if (subtitleCoroutine != null)
         {
-            Debug.Log("subtitleCoroutine не null, останавливаем корутину");
+            Debug.Log("subtitleCoroutine пїЅпїЅ null, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             StopCoroutine(subtitleCoroutine);
         }
 
@@ -51,12 +51,13 @@ public class SubtitleManager : MonoBehaviour
     }
 
     private IEnumerator PlaySubtitles()
-    {
-        Debug.Log("PlaySubtitles корутина запущена");
+    {   
+        yield return new WaitForSeconds(2);
+        Debug.Log("PlaySubtitles пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         // for (int i = 0; i < Mathf.Min(subtitles.Length, audioClips.Length); i++)
         for (int i = 0; i < subtitles.Length; i++)
         {
-            Debug.Log($"Показываем субтитр: {subtitles[i]}");
+            Debug.Log($"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: {subtitles[i]}");
             subtitleText.text = subtitles[i];
             yield return StartCoroutine(FadeTextAlpha(0f, 1f, fadeDuration)); // Fade in
 
@@ -72,7 +73,7 @@ public class SubtitleManager : MonoBehaviour
         }
     }
 
-    // Вспомогательный метод для плавного изменения альфа-канала текста
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     private IEnumerator FadeTextAlpha(float from, float to, float duration)
     {
         float elapsed = 0f;
@@ -86,7 +87,7 @@ public class SubtitleManager : MonoBehaviour
         SetTextAlpha(to);
     }
 
-    // Установка альфа-канала текста
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     private void SetTextAlpha(float alpha)
     {
         Color c = subtitleText.color;
